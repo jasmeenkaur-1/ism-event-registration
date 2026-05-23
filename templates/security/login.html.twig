@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Admin Login{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow" style="border-top: 3px solid #f0a500;">
+                <div class="card-body p-4">
+                    <h4 class="mb-4 text-center" style="color:#1c2b4a">Admin Login</h4>
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans }}</div>
+                    {% endif %}
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Email</label>
+                            <input type="email" name="_username" value="{{ last_username }}" class="form-control" required autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Password</label>
+                            <input type="password" name="_password" class="form-control" required>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <button type="submit" class="btn btn-ism w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

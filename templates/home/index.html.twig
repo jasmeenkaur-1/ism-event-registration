@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}ISM Data Science Summit 2026{% endblock %}
+{% block body %}
+
+<div class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p style="color:#f0a500; font-weight:700; text-transform:uppercase; letter-spacing:2px; font-size:0.85rem;">Upcoming Event</p>
+                <h1>ISM Data Science Institute<br>Presentation Roadshow</h1>
+                <h2>International School of Management — 2026</h2>
+
+                {% if summit %}
+                <div class="info-box">
+                    <p>📍 <strong>{{ summit.location.city }}</strong> — {{ summit.location.campusName }}</p>
+                    <p>📅 {{ summit.location.evenDate|date('d.m.Y') }} at {{ summit.location.evenDate|date('H:i') }}</p>
+                    <p class="mb-0">🪑 Available seats: <strong>{{ summit.location.capacity }}</strong></p>
+                </div>
+                <div class="mt-4 d-flex gap-3">
+                    <a href="/register" class="btn btn-ism">Register Now</a>
+                    <a href="#about" class="btn btn-ism-outline">Learn More</a>
+                </div>
+                {% else %}
+                <p class="mt-4 text-muted">No active summit at the moment.</p>
+                {% endif %}
+            </div>
+            <div class="col-md-6 hero-image mt-4 mt-md-0">
+                <img src="https://en.ism.de/media/yootheme/cache/f6/hamburg-studieren-f6830d42.jpg" alt="ISM Campus Hamburg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5" id="about">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="section-card">
+                <h5>🎓 About the Event</h5>
+                <p>The ISM presents its new Data Science Institute at campuses across Germany in a roadshow format.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="section-card">
+                <h5>📍 Locations</h5>
+                <p>Hamburg · Dortmund · Munich — three cities, three dates, one roadshow.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="section-card">
+                <h5>✅ Free Registration</h5>
+                <p>Register now to secure your spot. Places are strictly limited per campus!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

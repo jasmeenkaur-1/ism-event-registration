@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ISM Summit{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --ism-navy: #1c2b4a;
+            --ism-orange: #f0a500;
+            --ism-light: #f5f5f5;
+        }
+        body { font-family: 'Open Sans', sans-serif; background: #fff; color: #333; }
+
+        /* NAVBAR */
+        .navbar { background: #fff !important; border-bottom: 1px solid #ddd; padding: 10px 0; }
+        .navbar-brand img { height: 55px; }
+        .nav-link { color: var(--ism-navy) !important; font-weight: 600; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 0 15px !important; }
+        .nav-link:hover { color: var(--ism-orange) !important; }
+
+        /* BOTTOM NAV BAR like ISM */
+        .bottom-bar { background: var(--ism-navy); color: white; padding: 15px 0; }
+        .bottom-bar a { color: white; text-decoration: none; font-size: 0.85rem; text-align: center; display: block; }
+        .bottom-bar a:hover { color: var(--ism-orange); }
+
+        /* HERO */
+        .hero { background: var(--ism-light); padding: 80px 0; }
+        .hero h1 { font-weight: 700; font-size: 2.4rem; color: var(--ism-navy); line-height: 1.2; }
+        .hero h2 { font-weight: 300; font-size: 1.3rem; color: #555; margin-top: 10px; }
+        .hero-image img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+
+        /* BUTTONS - orange like real ISM */
+        .btn-ism { background: var(--ism-orange); color: var(--ism-navy); border: none; border-radius: 25px; padding: 12px 35px; font-weight: 700; font-size: 0.9rem; }
+        .btn-ism:hover { background: #d4920a; color: var(--ism-navy); }
+        .btn-ism-outline { background: transparent; color: var(--ism-navy); border: 2px solid var(--ism-navy); border-radius: 25px; padding: 10px 30px; font-weight: 600; font-size: 0.9rem; }
+        .btn-ism-outline:hover { background: var(--ism-navy); color: white; }
+
+        /* INFO BOX */
+        .info-box { background: white; border-left: 4px solid var(--ism-orange); padding: 20px 25px; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-top: 25px; text-align: left; display: inline-block; min-width: 300px; }
+        .info-box p { color: var(--ism-navy); margin-bottom: 8px; }
+
+        /* CARDS */
+        .section-card { border-top: 3px solid var(--ism-orange); padding: 25px 20px; background: var(--ism-light); height: 100%; border-radius: 4px; }
+        .section-card h5 { color: var(--ism-navy); font-weight: 700; }
+
+        /* FOOTER */
+        footer { background: var(--ism-navy); color: #aab; padding: 40px 0; font-size: 0.88rem; }
+        footer img { height: 35px; filter: brightness(0) invert(1); margin-bottom: 15px; }
+        footer a { color: var(--ism-orange); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="https://en.ism.de/images/ism-images/allgemein/logo-ism.png" alt="ISM Logo">
+        </a>
+        <div class="navbar-nav ms-auto align-items-center">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/register">Register</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="nav-link" href="/admin">Admin</a>
+                <a class="nav-link" style="color:var(--ism-orange) !important;" href="/logout">Logout</a>
+            {% else %}
+                <a class="nav-link" style="color:#999 !important; font-size:0.82rem;" href="/admin/login">Admin Login</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+{% block body %}{% endblock %}
+
+<!-- Bottom bar like ISM -->
+<div class="bottom-bar">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-4">
+                <a href="/register">📋 Register Now</a>
+            </div>
+            <div class="col-4">
+                <a href="/">📅 Event Info</a>
+            </div>
+            <div class="col-4">
+                <a href="/admin/login">🔐 Admin</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container text-center">
+        <img src="https://en.ism.de/images/ism-images/allgemein/logo-ism.png" alt="ISM Logo"><br>
+        <p class="mb-1">© 2026 International School of Management (ISM)</p>
+        <p class="mb-1"><em>International. Individual. Inspiring.</em></p>
+        <a href="https://en.ism.de" target="_blank">en.ism.de</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>s
