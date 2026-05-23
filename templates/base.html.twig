@@ -13,39 +13,25 @@
             --ism-light: #f5f5f5;
         }
         body { font-family: 'Open Sans', sans-serif; background: #fff; color: #333; }
-
-        /* NAVBAR */
         .navbar { background: #fff !important; border-bottom: 1px solid #ddd; padding: 10px 0; }
-        .navbar-brand img { height: 55px; }
+        .navbar-brand img { height: 55px; width: auto; }
         .nav-link { color: var(--ism-navy) !important; font-weight: 600; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 0 15px !important; }
         .nav-link:hover { color: var(--ism-orange) !important; }
-
-        /* BOTTOM NAV BAR like ISM */
         .bottom-bar { background: var(--ism-navy); color: white; padding: 15px 0; }
         .bottom-bar a { color: white; text-decoration: none; font-size: 0.85rem; text-align: center; display: block; }
         .bottom-bar a:hover { color: var(--ism-orange); }
-
-        /* HERO */
         .hero { background: var(--ism-light); padding: 80px 0; }
         .hero h1 { font-weight: 700; font-size: 2.4rem; color: var(--ism-navy); line-height: 1.2; }
         .hero h2 { font-weight: 300; font-size: 1.3rem; color: #555; margin-top: 10px; }
         .hero-image img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-
-        /* BUTTONS - orange like real ISM */
         .btn-ism { background: var(--ism-orange); color: var(--ism-navy); border: none; border-radius: 25px; padding: 12px 35px; font-weight: 700; font-size: 0.9rem; }
         .btn-ism:hover { background: #d4920a; color: var(--ism-navy); }
         .btn-ism-outline { background: transparent; color: var(--ism-navy); border: 2px solid var(--ism-navy); border-radius: 25px; padding: 10px 30px; font-weight: 600; font-size: 0.9rem; }
         .btn-ism-outline:hover { background: var(--ism-navy); color: white; }
-
-        /* INFO BOX */
         .info-box { background: white; border-left: 4px solid var(--ism-orange); padding: 20px 25px; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-top: 25px; text-align: left; display: inline-block; min-width: 300px; }
         .info-box p { color: var(--ism-navy); margin-bottom: 8px; }
-
-        /* CARDS */
         .section-card { border-top: 3px solid var(--ism-orange); padding: 25px 20px; background: var(--ism-light); height: 100%; border-radius: 4px; }
         .section-card h5 { color: var(--ism-navy); font-weight: 700; }
-
-        /* FOOTER */
         footer { background: var(--ism-navy); color: #aab; padding: 40px 0; font-size: 0.88rem; }
         footer img { height: 35px; filter: brightness(0) invert(1); margin-bottom: 15px; }
         footer a { color: var(--ism-orange); text-decoration: none; }
@@ -56,7 +42,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="https://en.ism.de/images/ism-images/allgemein/logo-ism.png" alt="ISM Logo"> style="height:45px; width:auto:">
+            <img src="https://en.ism.de/images/ism-images/allgemein/logo-ism.png" alt="ISM Logo">
         </a>
         <div class="navbar-nav ms-auto align-items-center">
             <a class="nav-link" href="/">Home</a>
@@ -73,7 +59,6 @@
 
 {% block body %}{% endblock %}
 
-<!-- Bottom bar like ISM -->
 <div class="bottom-bar">
     <div class="container">
         <div class="row text-center">
@@ -103,4 +88,4 @@
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 {% block javascripts %}{% endblock %}
 </body>
-</html>s
+</html>
