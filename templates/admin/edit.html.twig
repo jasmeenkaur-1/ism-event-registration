@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title %}Edit Registration{% endblock %}
+{% block body %}
+<div style="background:#f5f5f5; min-height:100vh; padding:60px 0;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div style="background:white; border-radius:8px; padding:40px; box-shadow:0 4px 20px rgba(0,0,0,0.08); border-top:4px solid #f0a500;">
+                    <h3 style="color:#1c2b4a; font-weight:700; margin-bottom:25px;">
+                        Edit Registration — {{ registration.firstName }} {{ registration.lastName }}
+                    </h3>
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">First Name</label>
+                            {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Last Name</label>
+                            {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Email</label>
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Company</label>
+                        {{ form_widget(form.company, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Meal Preference</label>
+                        {{ form_widget(form.mealPreference, {'attr': {'class': 'form-select'}}) }}
+                    </div>
+                    <div class="mb-4">
+                        <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Dietary Notes</label>
+                        {{ form_widget(form.dietaryNotes, {'attr': {'class': 'form-control', 'rows': '3'}}) }}
+                    </div>
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-ism w-100'}}) }}
+                    {{ form_end(form) }}
+                    <a href="/admin" class="btn btn-ism-outline w-100 mt-3">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

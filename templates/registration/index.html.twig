@@ -1,17 +1,81 @@
 {% extends 'base.html.twig' %}
-{% block title %}Register{% endblock %}
+{% block title %}Register — ISM Summit 2026{% endblock %}
 {% block body %}
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2 class="mb-4" style="color:#e30613">Register for {{ summit.title }}</h2>
-            {% for message in app.flashes('error') %}
-                <div class="alert alert-danger">{{ message }}</div>
-            {% endfor %}
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}
+
+<div style="background:#f5f5f5; min-height:100vh; padding:60px 0;">
+    <div class="container">
+        <div class="row">
+
+            <!-- Left side - Event Info -->
+            <div class="col-md-5 mb-4">
+                <p style="color:#f0a500; font-weight:700; text-transform:uppercase; letter-spacing:2px; font-size:0.85rem;">Upcoming Event</p>
+                <h1 style="color:#1c2b4a; font-weight:700; font-size:2rem;">ISM Data Science Institute</h1>
+                <h2 style="color:#555; font-weight:300; font-size:1.2rem;">Presentation Roadshow 2026</h2>
+
+                <div style="border-left:4px solid #f0a500; padding:15px 20px; background:white; margin-top:25px; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+                    <p class="mb-2" style="color:#1c2b4a;"><strong>📍 Location</strong><br>{{ summit.location.city }} — {{ summit.location.campusName }}</p>
+                    <p class="mb-2" style="color:#1c2b4a;"><strong>📅 Date</strong><br>{{ summit.location.evenDate|date('d.m.Y') }} at {{ summit.location.evenDate|date('H:i') }}</p>
+                    <p class="mb-0" style="color:#1c2b4a;"><strong>🪑 Available Seats</strong><br>{{ summit.location.capacity }} spots total</p>
+                </div>
+
+                <div style="margin-top:25px; padding:15px; background:#1c2b4a; border-radius:4px; color:white;">
+                    <p class="mb-1" style="font-size:0.85rem; color:#f0a500; font-weight:700;">FREE EVENT</p>
+                    <p class="mb-0" style="font-size:0.9rem;">Registration is completely free. Secure your spot today!</p>
+                </div>
+            </div>
+
+            <!-- Right side - Form -->
+            <div class="col-md-7">
+                <div style="background:white; border-radius:8px; padding:40px; box-shadow:0 4px 20px rgba(0,0,0,0.08); border-top:4px solid #f0a500;">
+                    <h3 style="color:#1c2b4a; font-weight:700; margin-bottom:25px;">Register for the Summit</h3>
+
+                    {% for message in app.flashes('error') %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">First Name *</label>
+                            {{ form_widget(form.firstName, {'attr': {'class': 'form-control', 'style': 'border-radius:4px; border:1px solid #ddd; padding:10px 15px;', 'placeholder': 'Your first name'}}) }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Last Name *</label>
+                            {{ form_widget(form.lastName, {'attr': {'class': 'form-control', 'style': 'border-radius:4px; border:1px solid #ddd; padding:10px 15px;', 'placeholder': 'Your last name'}}) }}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Email Address *</label>
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'style': 'border-radius:4px; border:1px solid #ddd; padding:10px 15px;', 'placeholder': 'your@email.com'}}) }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Company / Organisation</label>
+                        {{ form_widget(form.company, {'attr': {'class': 'form-control', 'style': 'border-radius:4px; border:1px solid #ddd; padding:10px 15px;', 'placeholder': 'Where do you work? (optional)'}}) }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Meal Preference *</label>
+                        {{ form_widget(form.mealPreference, {'attr': {'class': 'form-select', 'style': 'border-radius:4px; border:1px solid #ddd; padding:10px 15px;'}}) }}
+                    </div>
+
+                    <div class="mb-4">
+                        <label style="color:#1c2b4a; font-weight:600; font-size:0.9rem;">Dietary Notes</label>
+                        {{ form_widget(form.dietaryNotes, {'attr': {'class': 'form-control', 'style': 'border-radius:4px; border:1px solid #ddd; padding:10px 15px;', 'placeholder': 'Any allergies or special requirements? (optional)', 'rows': '3'}}) }}
+                    </div>
+
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-ism w-100', 'style': 'padding:14px; font-size:1rem;'}}) }}
+
+                    {{ form_end(form) }}
+
+                    <p style="font-size:0.8rem; color:#999; text-align:center; margin-top:15px;">* Required fields</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
+
 {% endblock %}
