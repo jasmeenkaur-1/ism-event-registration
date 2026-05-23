@@ -20,8 +20,10 @@ The International School of Management (ISM) is doing a roadshow to present thei
 - After registration a PDF ticket with QR code can be downloaded
 - Admins can log in to see all registrations
 - The registration table in admin is sortable by clicking column headers (jQuery)
-- Admins can delete registrations
+- Admins can edit and delete registrations (full CRUD)
 - Admins can export all registrations as Excel file
+- Admins can download Attendance List as PDF for check-in
+- Admins can download Name Tags as PDF for event badges
 - The design follows ISM branding with official logo, colors and font
 
 ## Technologies Used
@@ -125,7 +127,11 @@ The PDF is generated using Dompdf. The QR code is generated using endroid/qr-cod
 5. Guest downloads PDF ticket with QR code
 6. If no seats left: guest sees registration closed message
 7. Admin goes to /admin/login and logs in with email and password
-8. Admin sees full list of registrations, can sort columns, delete entries or download Excel file
+8. Admin sees full list of registrations, can sort by any column
+9. Admin can edit or delete any registration
+10. Admin can download Excel file with all registrations
+11. Admin can download Attendance List PDF for check-in at event
+12. Admin can download Name Tags PDF for printing event badges
 
 ## Problems I Ran Into
 
