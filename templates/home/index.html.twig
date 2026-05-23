@@ -13,7 +13,7 @@
                 {% if summit %}
                 <div class="info-box">
                     <p>📍 <strong>{{ summit.location.city }}</strong> — {{ summit.location.campusName }}</p>
-                    <p>📅 {{ summit.location.evenDate|date('d.m.Y') }} at {{ summit.location.evenDate|date('H:i') }}</p>
+                    <p>📅 {{ summit.location.evenDate|date('d.m.Y') }} at {{ summit.location.evenDate|date('h:i A') }}</p>
                     <p class="mb-0">🪑 Available seats: <strong>{{ summit.location.capacity }}</strong></p>
                 </div>
                 <div class="mt-4 d-flex gap-3">

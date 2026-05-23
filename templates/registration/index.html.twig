@@ -14,7 +14,7 @@
 
                 <div style="border-left:4px solid #f0a500; padding:15px 20px; background:white; margin-top:25px; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
                     <p class="mb-2" style="color:#1c2b4a;"><strong>📍 Location</strong><br>{{ summit.location.city }} — {{ summit.location.campusName }}</p>
-                    <p class="mb-2" style="color:#1c2b4a;"><strong>📅 Date</strong><br>{{ summit.location.evenDate|date('d.m.Y') }} at {{ summit.location.evenDate|date('H:i') }}</p>
+                    <p class="mb-2" style="color:#1c2b4a;"><strong>📅 Date</strong><br>{{ summit.location.evenDate|date('d.m.Y') }} at {{ summit.location.evenDate|date('h:i A') }}</p>
                     <p class="mb-0" style="color:#1c2b4a;"><strong>🪑 Available Seats</strong><br>{{ summit.location.capacity }} spots total</p>
                 </div>
 

@@ -49,7 +49,7 @@ class PdfService
                 <div class="info-row"><strong>Company</strong>' . ($registration->getCompany() ?? 'Not provided') . '</div>
                 <div class="info-row"><strong>Meal Preference</strong>' . ucfirst($registration->getMealPreference()) . '</div>
                 <div class="info-row"><strong>Event Location</strong>ISM Campus Hamburg, Brooktorkai 22, 20457 Hamburg</div>
-                <div class="info-row"><strong>Date</strong>15 June 2026 at 10:00</div>
+                <div class="info-row"><strong>Date</strong>15 June 2026 at 10:00 AM</div>
                 <div class="qr-section">
                     <img src="data:image/png;base64,' . $qrBase64 . '" width="160" height="160">
                     <p>Please scan this QR code at check-in</p>
